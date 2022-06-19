@@ -26,9 +26,9 @@
     <Pagination :data="posts" @pagination-change-page="getPosts"/>
 </template>
 <script>
+import {onMounted, ref,watch} from "vue";
 import usePosts from '../../composables/posts'
 import useCategories from '../../composables/categories'
-import {onMounted, ref} from "vue";
 
 export default {
     setup() {
@@ -37,12 +37,18 @@ export default {
         const {categories, getCategories} = useCategories()
 
         onMounted(() => {
-            getPosts(),
-                getCategories()
+            getPosts()
+            getCategories()
         })
-        return {posts, getPosts, categories, getCategories ,selectedCategory}
+        watch(selectedCategory,(current,previous)=> {
+            getPosts(1,current)
+        })
+        return {posts, getPosts, categories ,selectedCategory}
     }
+
     //  this is optional way in vue 2
+
+
     // data(){
     //     return{
     //         posts:[]

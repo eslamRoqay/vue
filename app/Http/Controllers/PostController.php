@@ -8,7 +8,13 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    public function index(){
-        return PostResource::collection(Post::with('category')->paginate(10));
+    public function index()
+    {
+        $posts = Post::with('category')
+            ->when(request('category'),function ($q){
+                $q->where('category_id',request('category'));
+            })
+            ->paginate(10);
+        return PostResource::collection($posts);
     }
 }
