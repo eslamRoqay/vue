@@ -21712,7 +21712,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "class": "block"
   }, [_hoisted_1, ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.categories, function (category) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("option", {
-      value: ""
+      value: category.id
     }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.name), 9
     /* TEXT, PROPS */
     , _hoisted_2);
@@ -21736,10 +21736,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* UNKEYED_FRAGMENT */
   ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Pagination, {
     data: $setup.posts,
-    onPaginationChangePage: $setup.getPosts
+    onPaginationChangePage: _cache[1] || (_cache[1] = function (page) {
+      return $setup.getPosts(page, $setup.selectedCategory);
+    })
   }, null, 8
   /* PROPS */
-  , ["data", "onPaginationChangePage"])], 64
+  , ["data"])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -21897,7 +21899,7 @@ function usePosts() {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 1;
+              page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 2;
               category = _args.length > 1 && _args[1] !== undefined ? _args[1] : '';
               axios.get('/api/posts?page=' + page + '&category=' + category).then(function (response) {
                 posts.value = response.data;

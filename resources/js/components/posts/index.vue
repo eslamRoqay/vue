@@ -1,7 +1,7 @@
 <template>
     <select v-model="selectedCategory" class="block" >
         <option value="" selected disabled ></option>
-        <option value="" v-for="category in categories" :value="category.id" > {{category.name}}</option>
+        <option  v-for="category in categories" :value="category.id" > {{category.name}}</option>
     </select>
     <table class="table">
         <thead>
@@ -23,7 +23,7 @@
         </tr>
         </tbody>
     </table>
-    <Pagination :data="posts" @pagination-change-page="getPosts"/>
+    <Pagination :data="posts" @pagination-change-page="page => getPosts(page, selectedCategory)" />
 </template>
 <script>
 import {onMounted, ref,watch} from "vue";
