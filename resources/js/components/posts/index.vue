@@ -1,6 +1,6 @@
 <template>
-    <select v-model="selectedCategory" class="block" >
-        <option value="" selected disabled ></option>
+    <select v-model="selectedCategory" class="form-control mb-4" >
+        <option value="" selected disabled > Select Category </option>
         <option  v-for="category in categories" :value="category.id" > {{category.name}}</option>
     </select>
     <table class="table">
