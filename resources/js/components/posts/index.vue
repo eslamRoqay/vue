@@ -1,6 +1,6 @@
 <template>
     <select v-model="selectedCategory" class="form-control mb-4" >
-        <option value="" selected disabled > Select Category </option>
+        <option value="" selected> Select Category </option>
         <option  v-for="category in categories" :value="category.id" > {{category.name}}</option>
     </select>
     <table class="table">
@@ -10,6 +10,7 @@
             <th scope="col">category</th>
             <th scope="col">title</th>
             <th scope="col">content</th>
+            <th scope="col">image name</th>
             <th scope="col">created at</th>
         </tr>
         </thead>
@@ -19,6 +20,7 @@
             <th scope="row">{{ post.category }}</th>
             <th scope="row">{{ post.title }}</th>
             <th scope="row">{{ post.content }}</th>
+            <th scope="row"> <img :src="post.image" style="height: 75px; width: 75px;"></th>
             <th scope="row">{{ post.created_at }}</th>
         </tr>
         </tbody>

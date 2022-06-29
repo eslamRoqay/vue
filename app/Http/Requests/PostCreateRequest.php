@@ -27,6 +27,7 @@ class PostCreateRequest extends FormRequest
             'title' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
             'content' => 'required|regex:/^([a-zA-Z]+)(\s[a-zA-Z]+)*$/',
             'category_id' => 'required|exists:categories,id',
+            'image'=>'required|mimes:jpeg,png,jpg,gif,svg',
         ];
     }
 

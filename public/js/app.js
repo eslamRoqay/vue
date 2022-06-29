@@ -21985,7 +21985,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "form-group col-4"
+  "class": "form-group col-3"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
@@ -21998,7 +21998,7 @@ var _hoisted_3 = {
   "class": "form-text text-danger"
 };
 var _hoisted_4 = {
-  "class": "form-group col-4"
+  "class": "form-group col-3"
 };
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
@@ -22011,7 +22011,7 @@ var _hoisted_6 = {
   "class": "form-text text-danger"
 };
 var _hoisted_7 = {
-  "class": "form-group col-4"
+  "class": "form-group col-3"
 };
 
 var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
@@ -22024,7 +22024,7 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   value: "",
   selected: "",
   disabled: ""
-}, " Select Category ", -1
+}, " Select Category", -1
 /* HOISTED */
 );
 
@@ -22033,7 +22033,7 @@ var _hoisted_11 = {
   "class": "form-text text-danger"
 };
 var _hoisted_12 = {
-  "class": "form-group col-4"
+  "class": "form-group col-3"
 };
 
 var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
@@ -22045,16 +22045,10 @@ var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_14 = {
   "class": "form-text text-danger"
 };
-
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_15 = {
   "class": "col text-center"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  type: "submit",
-  "class": "btn btn-primary text-dark justify-center"
-}, "Submit")], -1
-/* HOISTED */
-);
-
+};
+var _hoisted_16 = ["disabled"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _$setup$ValidationErr, _$setup$ValidationErr2, _$setup$ValidationErr3, _$setup$ValidationErr4;
 
@@ -22121,20 +22115,28 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }), 256
   /* UNKEYED_FRAGMENT */
   ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
-      return $setup.post.image = $event;
+    onChange: _cache[3] || (_cache[3] = function ($event) {
+      return $setup.post.image = $event.target.files[0];
     }),
     type: "file",
     id: "post_image",
     "class": "form-control",
     name: "image"
-  }), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)((_$setup$ValidationErr4 = $setup.ValidationErrors) === null || _$setup$ValidationErr4 === void 0 ? void 0 : _$setup$ValidationErr4.category_id, function (message) {
+  }, null, 32
+  /* HYDRATE_EVENTS */
+  ), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)((_$setup$ValidationErr4 = $setup.ValidationErrors) === null || _$setup$ValidationErr4 === void 0 ? void 0 : _$setup$ValidationErr4.image, function (message) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("small", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(message), 1
     /* TEXT */
     );
   }), 256
   /* UNKEYED_FRAGMENT */
-  ))]), _hoisted_15], 32
+  ))]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    type: "submit",
+    disabled: _ctx.isDisabled,
+    "class": "btn btn-primary text-dark justify-center"
+  }, "Submit", 8
+  /* PROPS */
+  , _hoisted_16)])], 32
   /* HYDRATE_EVENTS */
   );
 }
@@ -22157,8 +22159,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
   value: "",
-  selected: "",
-  disabled: ""
+  selected: ""
 }, " Select Category ", -1
 /* HOISTED */
 );
@@ -22178,6 +22179,8 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   scope: "col"
 }, "content"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
   scope: "col"
+}, "image name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  scope: "col"
 }, "created at")])], -1
 /* HOISTED */
 );
@@ -22195,6 +22198,10 @@ var _hoisted_8 = {
   scope: "row"
 };
 var _hoisted_9 = {
+  scope: "row"
+};
+var _hoisted_10 = ["src"];
+var _hoisted_11 = {
   scope: "row"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -22224,7 +22231,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     /* TEXT */
     ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.content), 1
     /* TEXT */
-    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.created_at), 1
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: post.image,
+      style: {
+        "height": "75px",
+        "width": "75px"
+      }
+    }, null, 8
+    /* PROPS */
+    , _hoisted_10)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", _hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.created_at), 1
     /* TEXT */
     )]);
   }), 256
@@ -22505,7 +22520,7 @@ function usePosts() {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              page = _args.length > 0 && _args[0] !== undefined ? _args[0] : 2;
+              page = _args.length > 0 && _args[0] !== undefined ? _args[0] : '';
               category = _args.length > 1 && _args[1] !== undefined ? _args[1] : '';
               axios.get('/api/posts?page=' + page + '&category=' + category).then(function (response) {
                 posts.value = response.data;
@@ -22526,11 +22541,20 @@ function usePosts() {
 
   var storePost = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2(post) {
+      var serializedPost, item;
       return _regeneratorRuntime().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              axios.post('/api/posts', post).then(function (response) {
+              serializedPost = new FormData();
+
+              for (item in post) {
+                if (post.hasOwnProperty(item)) {
+                  serializedPost.append(item, post[item]);
+                }
+              }
+
+              axios.post('/api/posts', serializedPost).then(function (response) {
                 router.push({
                   name: 'posts.index'
                 });
@@ -22542,7 +22566,7 @@ function usePosts() {
                 }
               });
 
-            case 1:
+            case 3:
             case "end":
               return _context2.stop();
           }

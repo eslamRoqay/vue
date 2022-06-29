@@ -5,15 +5,22 @@ export default function usePosts() {
     const posts = ref({})
     const router = useRouter()
     const ValidationErrors = ref({})
-    const getPosts = async (page = 2, category = '') => {
+    const getPosts = async (page = '', category = '') => {
         axios.get('/api/posts?page=' + page + '&category=' + category)
             .then(response => {
                 posts.value = response.data;
             })
     }
     const storePost = async (post) => {
-        axios.post('/api/posts', post)
+        let serializedPost=new FormData()
+            for(let item in post){
+                if(post.hasOwnProperty(item)){
+                    serializedPost.append(item ,post[item])
+                }
+            }
 
+
+        axios.post('/api/posts', serializedPost)
             .then(response => {
                 router.push({name: 'posts.index'})
             })
