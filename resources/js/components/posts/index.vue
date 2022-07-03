@@ -12,6 +12,7 @@
             <th scope="col">content</th>
             <th scope="col">image name</th>
             <th scope="col">created at</th>
+            <th scope="col">actions</th>
         </tr>
         </thead>
         <tbody>
@@ -22,6 +23,10 @@
             <th scope="row">{{ post.content }}</th>
             <th scope="row"> <img :src="post.image" style="height: 75px; width: 75px;"></th>
             <th scope="row">{{ post.created_at }}</th>
+            <th scope="row">
+                <router-link :to="{name:'post.edit' ,params:{id:post.id} }" class="btn btn-info">Edit</router-link>
+            </th>
+
         </tr>
         </tbody>
     </table>
