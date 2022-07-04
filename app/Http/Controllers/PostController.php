@@ -32,8 +32,26 @@ class PostController extends GeneralController
             }
         }
         $post= Post::create($data);
-//       sleep(1);
+       sleep(2);
         return new  PostResource($post);
     }
 
+    public function show(Post $post){
+
+        return new PostResource($post);
+
+    }
+    public function update(Post $post,PostCreateRequest $request)
+    {
+
+        $data = $request->validated();
+        if ($request->image) {
+            if ($request->hasFile('image')) {
+                $data['image'] = $this->uploadImage($request->file('image'),'users',$post->image );
+            }
+        }
+        $post->update($data);
+//        sleep(2);
+        return new  PostResource($post);
+    }
 }

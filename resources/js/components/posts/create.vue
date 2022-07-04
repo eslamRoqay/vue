@@ -33,7 +33,7 @@
         </div>
 
         <div class="col text-center">
-            <button type="submit" :disabled='isDisabled' class="btn btn-primary text-dark justify-center ">Submit</button>
+            <button type="submit" :disabled='isDisable'   class="btn btn-primary text-dark justify-center ">Submit</button>
         </div>
     </form>
 </template>
@@ -50,12 +50,12 @@ export default {
             category_id: ''
         })
         const {categories, getCategories} = useCategories()
-        const {storePost, ValidationErrors} = usePosts()
+        const {storePost, ValidationErrors,isDisable} = usePosts()
 
         onMounted(() => {
             getCategories()
         })
-        return {categories, post, storePost, ValidationErrors}
+        return {categories, post, storePost, ValidationErrors,isDisable}
     },
 
 
