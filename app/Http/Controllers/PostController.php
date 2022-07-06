@@ -13,12 +13,13 @@ class PostController extends GeneralController
     {
         parent::__construct($model);
     }
+
     public function index()
     {
         $posts = Post::with('category')
             ->when(request('category'), function ($q) {
                 $q->where('category_id', request('category'));
-            })->orderBy('id','desc')
+            })->orderBy('id', 'desc')
             ->paginate(10);
         return PostResource::collection($posts);
     }
@@ -28,30 +29,38 @@ class PostController extends GeneralController
         $data = $request->validated();
         if ($request->image) {
             if ($request->hasFile('image')) {
-                $data['image'] = $this->uploadImage($request->file('image'),'users' );
+                $data['image'] = $this->uploadImage($request->file('image'), 'users');
             }
         }
-        $post= Post::create($data);
-       sleep(2);
+        $post = Post::create($data);
+
         return new  PostResource($post);
     }
 
-    public function show(Post $post){
+    public function show(Post $post)
+    {
 
         return new PostResource($post);
 
     }
-    public function update(Post $post,PostCreateRequest $request)
+
+    public function update(Post $post, PostCreateRequest $request)
     {
 
         $data = $request->validated();
         if ($request->image) {
             if ($request->hasFile('image')) {
-                $data['image'] = $this->uploadImage($request->file('image'),'users',$post->image );
+                $data['image'] = $this->uploadImage($request->file('image'), 'users', $post->image);
             }
         }
         $post->update($data);
-//        sleep(2);
+
         return new  PostResource($post);
+    }
+
+    public function destroy(Post $post)
+    {
+        $post->delete();
+        return response()->noContent();
     }
 }

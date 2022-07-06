@@ -24,7 +24,8 @@
             <th scope="row"> <img :src="post.image" style="height: 75px; width: 75px;"></th>
             <th scope="row">{{ post.created_at }}</th>
             <th scope="row">
-                <router-link :to="{name:'posts.edit' ,params:{id:post.id} }" class="btn btn-info">Edit</router-link>
+                <router-link :to="{name:'posts.edit' ,params:{id:post.id} }" class="btn btn-info col-6">Edit</router-link>
+                <a href="#" @click.prevent="deletePost(post.id)" class="btn btn-danger col-6">delete</a>
             </th>
 
         </tr>
@@ -40,7 +41,7 @@ import useCategories from '../../composables/categories'
 export default {
     setup() {
         const selectedCategory=ref('')
-        const {posts, getPosts} = usePosts()
+        const {posts, getPosts,deletePost} = usePosts()
         const {categories, getCategories} = useCategories()
 
         onMounted(() => {
@@ -50,7 +51,7 @@ export default {
         watch(selectedCategory,(current,previous)=> {
             getPosts(1,current)
         })
-        return {posts, getPosts, categories ,selectedCategory}
+        return {posts, getPosts, categories ,selectedCategory,deletePost}
     }
 
     //  this is optional way in vue 2
