@@ -1,5 +1,5 @@
 <template>
- sadfsdf
+ asdasd
 </template>
 
 <script setup>
