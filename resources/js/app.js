@@ -1,19 +1,18 @@
-require('./bootstrap.js');
+import './bootstrap';
 import { createApp } from 'vue'
-import PostsIndex from './components/Posts/Index.vue'
-import App from './App.vue'
-const app = createApp({})
-app.component('app', App)
-
+import { createRouter ,createWebHistory} from 'vue-router'
+import PostsIndex from './components/posts/Index.vue'
+import Apps from './components/App.vue'
+const app = createApp(Apps)
 
 const routes = [
     { path: '/posts', component: PostsIndex },
 ]
-const router = VueRouter.createRouter({
-     history: VueRouter.createWebHashHistory(),
-    routes,
+const router = createRouter({
+    history: createWebHistory(),
+    routes
 })
+
+
 app.use(router)
-
-
 app.mount('#app')

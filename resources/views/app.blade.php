@@ -9,33 +9,17 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
             crossorigin="anonymous"></script>
-    @vite(['resources/js/app.js', 'resources/css/app.css'])
+    @vite('resources/css/app.css')
 </head>
 <body>
 <div class="container p-2">
 
     <div id="app">
-{{--        <nav class="navbar navbar-expand-lg bg-light">--}}
-{{--            <div class="container-fluid">--}}
-{{--                <a class="navbar-brand" href="#">Navbar</a>--}}
-{{--                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"--}}
-{{--                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"--}}
-{{--                        aria-expanded="false" aria-label="Toggle navigation">--}}
-{{--                    <span class="navbar-toggler-icon"></span>--}}
-{{--                </button>--}}
-
-{{--                <div class="collapse navbar-collapse" id="navbarSupportedContent">--}}
-{{--                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">--}}
-{{--                        <li class="nav-item">--}}
-{{--                            <a class="nav-link active" aria-current="page" href="">Home</a>--}}
-{{--                        </li>--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </nav>--}}
-        <app></app>
+        <app/>
     </div>
 </div>
+@vite('resources/js/app.js')
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
         crossorigin="anonymous"></script>
