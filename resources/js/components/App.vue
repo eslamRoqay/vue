@@ -7,9 +7,7 @@
                         <router-link class="nav-link active" to="/posts">posts</router-link>
                      </li>
 
-                    <li class="nav-item">
-                        <router-link class="nav-link active" to="/home">home</router-link>
-                    </li>
+
 
                 </ul>
             </div>

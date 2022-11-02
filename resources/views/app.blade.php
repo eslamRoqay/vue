@@ -28,9 +28,4 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
-<script>
-    import App from "../js/App.vue";
-    export default {
-        components: {App}
-    }
-</script>
+

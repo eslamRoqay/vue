@@ -4,33 +4,40 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">title</th>
+            <th scope="col">content</th>
+            <th scope="col">created</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+        <tr v-for="(post, index) in posts">
+            <th scope="row">{{ index +1 }}</th>
+            <td>{{ post.title }}</td>
+            <td>{{ post.content }}</td>
+            <td>{{ post.created_at }}</td>
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-        </tr>
+
         </tbody>
     </table>
 
 </template>
 <script>
-
+export default {
+    data(){
+        return{
+            posts:[],
+        }
+    },
+    async mounted() {
+        await this.getPosts()
+    },
+    methods:{
+        getPosts()
+        {
+            axios.get('api/posts')
+            .then(response=>this.posts=response.data.data)
+            .catch(error=>console.log(error))
+        }
+    }
+}
 </script>
