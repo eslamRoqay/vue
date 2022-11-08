@@ -1,5 +1,6 @@
 <template>
     <div>
+        <router-link :to="'/posts/create'" class="btn btn-info m-3"> create post </router-link>
         <vue-good-table
             :columns="columns"
             :rows="posts"
@@ -28,13 +29,14 @@ export default {
         return {
             posts: [],
             columns: [
-                {
-                    label: 'title',
-                    field: 'title',
-                },
+
                 {
                     label: 'content',
                     field: 'content',
+                },
+                {
+                    label: 'title',
+                    field: 'title',
                 },
                 {
                     label: 'created_at',
